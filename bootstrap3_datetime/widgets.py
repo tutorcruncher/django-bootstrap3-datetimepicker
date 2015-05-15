@@ -87,18 +87,10 @@ class DateTimePicker(DateTimeInput):
             </span>
         </div>'''
 
+    # commit 042dd1da3a7ff21010c1273c092cba108d95baeb is messing with the ajax load (i think) so rolled back
     js_template = '''
         <script>
-            (function(window) {
-                var callback = function() {
-                    $(function(){$("#%(picker_id)s:has(input:not([readonly],[disabled]))").datetimepicker(%(options)s);});
-                };
-                if(window.addEventListener)
-                    window.addEventListener("load", callback, false);
-                else if (window.attachEvent)
-                    window.attachEvent("onload", callback);
-                else window.onload = callback;
-            })(window);
+            $(function(){$("#%(picker_id)s:has(input:not([readonly],[disabled]))").datetimepicker(%(options)s);});
         </script>'''
 
     def __init__(self, attrs=None, format=None, options=None, div_attrs=None, icon_attrs=None):
