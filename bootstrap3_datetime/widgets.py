@@ -87,7 +87,7 @@ class DateTimePicker(DateTimeInput):
             </span>
         </div>'''
 
-    # commit 042dd1da3a7ff21010c1273c092cba108d95baeb is messing with the ajax load (i think) so rolled back
+    # commit 042dd1da3a7ff21010c1273c092cba108d95baeb is messing with the ajax load so rolled back
     js_template = '''
         <script>
             $(function(){$("#%(picker_id)s:has(input:not([readonly],[disabled]))").datetimepicker(%(options)s);});
