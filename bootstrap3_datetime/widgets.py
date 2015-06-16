@@ -66,7 +66,7 @@ class DateTimePicker(DateTimeInput):
     # commit 042dd1da3a7ff21010c1273c092cba108d95baeb is messing with the ajax load so rolled back
     js_template = '''
         <script>
-            $(function(){$("#%(picker_id)s:has(input:not([readonly],[disabled]))").datetimepicker(%(options)s);});
+            $(function(){moment.locale("''' + translation.get_language() + '''");$("#%(picker_id)s:has(input:not([readonly],[disabled]))").datetimepicker(%(options)s);});
         </script>'''
 
     def __init__(self, attrs=None, format=None, options=None, div_attrs=None, icon_attrs=None):
