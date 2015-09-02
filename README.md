@@ -11,7 +11,7 @@ bootstrap-datepicker.js multiple times can cause unexpected behavior.
 
  Install
 
-* Run `pip install django-bootstrap3-datetimepicker`
+* Run `pip git+https://github.com/samuelcolvin/django-bootstrap3-datetimepicker.git@<CHOOSE SHA HERE>#egg=django-bootstrap3-datetimepicker==2.4`
 * Add `'bootstrap3_datetime'` to your `INSTALLED_APPS`
 
 
@@ -50,34 +50,11 @@ because it will be set the current language of the thread automatically.
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" 
-        href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.css">
-    <link rel="stylesheet" 
-        href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js">
-    </script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.js">
-    </script>
-    {{ form.media }}
+    <!-- load all required js/css yourself here -->
   </head>
   <body>
     <form method="post" role="form">
-      {% for field in form.visible_fields %}
-      <div id="div_{{ field.html_name }}" 
-         class="form-group{% if field.errors %} has-error{% endif %}">
-        {{ field.label_tag }}
-        {{ field }}
-        <div class="text-muted pull-right">
-          <small>{{ field.help_text }}</small>
-        </div>
-        <div class="help-block">
-          {{ field.errors }}
-        </div>
-      </div>
-      {% endfor %}
-      {% for hidden in form.hidden_fields %}
-        {{ hidden }}
-      {% endfor %}
+      {{ form|bootstrap }}
       {% csrf_token %}
       <div class="form-group">
         <input type="submit" value="Submit" class="btn btn-primary" />
@@ -87,13 +64,15 @@ because it will be set the current language of the thread automatically.
 </html>
 ```
 
-Bootstrap3 and jQuery have to be included along with `{{ form.media }}`
+Here we assume you're using [django-bootstrap-form](https://github.com/tzangms/django-bootstrap-form) or 
+[django-jinja-bootstrap-form](https://github.com/samuelcolvin/django-jinja-bootstrap-form) but you can
+draw out your HTML manually.
 
-Requirements
--------------------------------
+## Requirements
 
 * Python >= 2.7
 * Django >= 1.8
-* Bootstrap >= 3.0
-
+* Bootstrap == 3.X
+* Moment >= 2.10.6
+* bootstrap-datetimepicker >= 4.15.35
 

@@ -3,7 +3,6 @@ import json
 
 from django.forms.utils import flatatt
 from django.forms.widgets import DateTimeInput
-from django.utils import translation
 from django.utils.safestring import mark_safe
 from django.utils.html import conditional_escape
 from django.utils.encoding import force_text
@@ -51,7 +50,6 @@ class DateTimePicker(DateTimeInput):
     js_template = """
     <script>
       $(function(){
-        moment.locale("%(language)s");
         $("#%(picker_id)s:has(input:not([readonly],[disabled]))").datetimepicker(%(options)s);
       });
     </script>"""
@@ -95,12 +93,7 @@ class DateTimePicker(DateTimeInput):
                                          input_attrs=flatatt(input_attrs),
                                          icon_attrs=flatatt(icon_attrs))
         if self.options:
-            self.options['locale'] = translation.get_language()
-            js = self.js_template % dict(
-                language=translation.get_language(),
-                picker_id=picker_id,
-                options=json.dumps(self.options or {})
-            )
+            js = self.js_template % dict(picker_id=picker_id, options=json.dumps(self.options or {}))
         else:
             js = ''
         return mark_safe(force_text(html + js))
