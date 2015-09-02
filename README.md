@@ -2,23 +2,25 @@
 
 This package uses [Bootstrap v3 datetimepicker widget version 4](https://github.com/Eonasdan/bootstrap-datetimepicker).
 
-This project is a fork of https://github.com/nkunihiko/django-bootstrap3-datetimepicker with the following changes:
-* bug/warning fixes
-* remove support for python 2.6 and associated clean up
-* js/css files are no longer included in the project, managing them is up to the user
+This project was originally a fork of https://github.com/nkunihiko/django-bootstrap3-datetimepicker, 
+it how has the following breaking changes:
+* js/css files are no longer included in the project, managing them is up to the user, eg. using 
+[grablib](https://github.com/samuelcolvin/grablib).
 * the widget no longer has js/css assert so you can load them as you wish, this is important as loading 
 bootstrap-datepicker.js multiple times can cause unexpected behavior.
+* bug/warning fixes
+* remove support for python 2.6 and associated clean up
 
- Install
+## Install
+
+Currently no pypi package for this version, so install directly from git:
 
 * Run `pip git+https://github.com/samuelcolvin/django-bootstrap3-datetimepicker.git@<CHOOSE SHA HERE>#egg=django-bootstrap3-datetimepicker==2.4`
 * Add `'bootstrap3_datetime'` to your `INSTALLED_APPS`
 
+## Example
 
-Example
---------------------------------
-
-###### forms.py
+#### forms.py
 
 ```python
 from bootstrap3_datetime.widgets import DateTimePicker
@@ -44,7 +46,7 @@ Available `options` are explained in the following documents:
 You don't need to set the `language` option, 
 because it will be set the current language of the thread automatically.
 
-###### template.html
+#### template.html
 
 ```html+jinja
 <!DOCTYPE html>
