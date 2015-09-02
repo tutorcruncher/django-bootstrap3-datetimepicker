@@ -3,17 +3,14 @@ from setuptools import setup
 
 setup(
     name='django-bootstrap3-datetimepicker',
-    packages=['bootstrap3_datetime',],
-    package_data={'bootstrap3_datetime': ['static/bootstrap3_datetime/css/*.css', 
-                                          'static/bootstrap3_datetime/js/*.js',
-                                          'static/bootstrap3_datetime/js/locales/*.js',]},
+    packages=['bootstrap3_datetime'],
     include_package_data=True,
-    version='2.3',
+    version='2.4',
     description='Bootstrap3 compatible datetimepicker for Django projects.',
-    long_description=open('README.rst').read(),
-    author='Nakahara Kunihiko',
-    author_email='nakahara.kunihiko@gmail.com',
-    url='https://github.com/gcaprio/django-bootstrap3-datetimepicker.git',
+    long_description=open('README.md').read(),
+    author='Nakahara Kunihiko/Samuel Colvin',
+    author_email='nakahara.kunihiko@gmail.com/s@muelcolvin.com',
+    url='https://github.com/samuelcolvin/django-bootstrap3-datetimepicker',
     license='Apache License 2.0',
     classifiers=[
         'Intended Audience :: Developers',
