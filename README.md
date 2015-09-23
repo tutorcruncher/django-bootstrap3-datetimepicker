@@ -15,7 +15,7 @@ bootstrap-datepicker.js multiple times can cause unexpected behavior.
 
 Currently no pypi package for this version, so install directly from git:
 
-* Run `pip git+https://github.com/samuelcolvin/django-bootstrap3-datetimepicker.git@<CHOOSE SHA HERE>#egg=django-bootstrap3-datetimepicker==2.4`
+* Run `pip git+https://github.com/samuelcolvin/django-bootstrap3-datetimepicker.git@2.4#egg=django-bootstrap3-datetimepicker==2.4`
 * Add `'bootstrap3_datetime'` to your `INSTALLED_APPS`
 
 ## Example
