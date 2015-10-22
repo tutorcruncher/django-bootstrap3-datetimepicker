@@ -3,7 +3,7 @@
 This package uses [Bootstrap v3 datetimepicker widget version 4](https://github.com/Eonasdan/bootstrap-datetimepicker).
 
 This project was originally a fork of https://github.com/nkunihiko/django-bootstrap3-datetimepicker, 
-it how has the following breaking changes:
+it now has the following breaking changes:
 
 * js/css files are no longer included in the project, managing them is up to the user, eg. using 
 [grablib](https://github.com/samuelcolvin/grablib).
