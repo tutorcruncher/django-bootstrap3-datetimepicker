@@ -27,12 +27,10 @@ from django import forms
       todo = forms.CharField(
           widget=forms.TextInput(attrs={"class": "form-control"}))
       date = forms.DateField(
-          widget=DateTimePicker(options={"format": "YYYY-MM-DD",
-                                         "pickTime": False}))
+          widget=DateTimePicker(options={"format": "YYYY-MM-DD"}))
       reminder = forms.DateTimeField(
           required=False,
-          widget=DateTimePicker(options={"format": "YYYY-MM-DD HH:mm",
-                                         "pickSeconds": False}))
+          widget=DateTimePicker(options={"format": "YYYY-MM-DD HH:mm"}))
 ```
 
 The `options` will be passed to the JavaScript datetimepicker instance. 
