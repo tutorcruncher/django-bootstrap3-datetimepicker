@@ -159,7 +159,7 @@ class TimePicker(TimeInput):
         self.div_attrs = div_attrs and div_attrs.copy() or {}
         self.icon_attrs = icon_attrs and icon_attrs.copy() or {}
         self.picker_id = self.div_attrs.get('id') or None
-        if options is False:  # timepicker will not be initalized only when options is False
+        if options is False:  # timepicker will not be initalized when options is False
             self.options = False
         else:
             self.options = options and options.copy() or {}
