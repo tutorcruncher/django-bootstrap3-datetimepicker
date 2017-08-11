@@ -10,7 +10,7 @@ setup(
     name='django-bootstrap3-datetimepicker-2',
     packages=['bootstrap3_datetime'],
     include_package_data=True,
-    version='2.4.2',
+    version='2.5.0',
     description='Bootstrap3 compatible datetimepicker for Django projects.',
     long_description=long_description,
     author='Nakahara Kunihiko/Samuel Colvin',
