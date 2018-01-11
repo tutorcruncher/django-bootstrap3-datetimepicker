@@ -68,7 +68,7 @@ draw out your HTML manually.
 ## Requirements
 
 * Python >= 2.7
-* Django >= 1.8
+* Django >= 1.11
 * Bootstrap == 3.X
 * Moment >= 2.10.6
 * bootstrap-datetimepicker >= 4.15.35
