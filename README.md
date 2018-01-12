@@ -68,7 +68,19 @@ draw out your HTML manually.
 ## Requirements
 
 * Python >= 2.7
-* Django >= 1.8
+* Django >= 1.11
 * Bootstrap == 3.X
 * Moment >= 2.10.6
 * bootstrap-datetimepicker >= 4.15.35
+
+### Backwards Compatibility
+
+If you want to use the picker in a Django 1.9 or 1.10 project, you can adapt by overwriting `build_attrs` with
+
+```python
+def build_attrs(self, base_attrs=None, extra_attrs=None, **kwargs):
+    if extra_attrs:
+        base_attrs.update(extra_attrs)
+    base_attrs.update(kwargs)
+    return super().build_attrs(**base_attrs)
+```
