@@ -74,6 +74,13 @@ class DateTimePicker(DateTimeInput):
             if format and not self.options.get('format') and not self.attrs.get('date-format'):
                 self.options['format'] = self.conv_datetime_format_py2js(format)
 
+    def _format_value(self, value):
+        """This function name was changed in Django 1.10 and removed in 2.0."""
+        if hasattr(self, 'format_value'):
+            return self.format_value(value)
+        else:
+            return self._format_value(value)
+
     def render(self, name, value, attrs=None):
         if value is None:
             value = ''
