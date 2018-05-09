@@ -49,9 +49,16 @@ class DateTimePicker(DateTimeInput):
 
     js_template = """
     <script>
-      $(function(){
-        $("#%(picker_id)s:has(input:not([readonly],[disabled]))").datetimepicker(%(options)s);
-      });
+        (function(window) {
+            var callback = function() {
+                $(function(){$("#%(picker_id)s:has(input:not([readonly],[disabled]))").datetimepicker(%(options)s);});
+            };
+            if(window.addEventListener)
+                window.addEventListener("load", callback, false);
+            else if (window.attachEvent)
+                window.attachEvent("onload", callback);
+            else window.onload = callback;
+        })(window);
     </script>"""
 
     def __init__(self, attrs=None, format=None, options=None, div_attrs=None, icon_attrs=None):
