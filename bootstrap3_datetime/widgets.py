@@ -83,10 +83,12 @@ class DateTimePicker(DateTimeInput):
 
     def _format_value(self, value):
         """This function name was changed in Django 1.10 and removed in 2.0."""
+        # Use renamed format_name() for Django versions >= 1.10.
         if hasattr(self, 'format_value'):
-            return self.format_value(value)
+            return super(DateTimePicker, self).format_value(value)
+        # Use old _format_name() for Django versions < 1.10.
         else:
-            return self._format_value(value)
+            return super(DateTimePicker, self)._format_value(value)
 
     def render(self, name, value, attrs=None):
         if value is None:
