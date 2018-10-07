@@ -90,7 +90,7 @@ class DateTimePicker(DateTimeInput):
         else:
             return super(DateTimePicker, self)._format_value(value)
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         if value is None:
             value = ''
 
