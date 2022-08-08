@@ -5,7 +5,7 @@ from django.forms.utils import flatatt
 from django.forms.widgets import DateTimeInput
 from django.utils.safestring import mark_safe
 from django.utils.html import conditional_escape
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 
 
 class DateTimePicker(DateTimeInput):
@@ -101,7 +101,7 @@ class DateTimePicker(DateTimeInput):
 
         if value != '':
             # Only add the 'value' attribute if a value is non-empty.
-            input_attrs['value'] = force_text(self._format_value(value))
+            input_attrs['value'] = force_str(self._format_value(value))
         input_attrs = {key: conditional_escape(val) for key, val in input_attrs.items()}
         if not self.picker_id:
              self.picker_id = (input_attrs.get('id', '') +
@@ -117,4 +117,4 @@ class DateTimePicker(DateTimeInput):
             js = self.js_template % dict(picker_id=picker_id, options=json.dumps(self.options or {}))
         else:
             js = ''
-        return mark_safe(force_text(html + js))
+        return mark_safe(force_str(html + js))
