@@ -1,4 +1,4 @@
 black==22.6.0
-django>=3
+django>=1.10
 flake8==5.0.4
 tox==3.25.1
