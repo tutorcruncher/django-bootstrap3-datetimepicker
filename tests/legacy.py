@@ -12,5 +12,5 @@ class DateTimePickerDjango110(DateTimePicker):
 
 
 def is_legacy():
-    x,y,z = [int(v) for v in django.__version__.split(".")]
+    x, y, z = [int(v) for v in django.__version__.split(".")]
     return x == 1 and y < 11
